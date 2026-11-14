@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mačacia filozofia</title>
+<style>
+:root{--bg:#eeecf5;--ink:#1d1a2b;--mute:#5d5876;--card:#fbfaff;--line:#d6d2e6;--eye:#d99a12;--s:#3d5a8a;--n:#b3262e;--c:#17707a;--b:#b8670a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13111d;--ink:#ece8f6;--mute:#a49fbd;--card:#1d1a2c;--line:#34304a;--eye:#f2b632;--s:#8fb0e6;--n:#ef7077;--c:#5fc6d0;--b:#f0a751}}
+:root[data-theme="dark"]{--bg:#13111d;--ink:#ece8f6;--mute:#a49fbd;--card:#1d1a2c;--line:#34304a;--eye:#f2b632;--s:#8fb0e6;--n:#ef7077;--c:#5fc6d0;--b:#f0a751}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2{font-family:"Iowan Old Style",Palatino,"Palatino Linotype",Georgia,serif;line-height:1.15;margin:0}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px}
+.eyes{display:flex;gap:14px;margin-bottom:22px}
+.eye{width:54px;height:54px;border-radius:50%;background:var(--eye);display:grid;place-items:center;overflow:hidden}
+.eye i{width:12px;height:46px;border-radius:50%;background:#14111c;animation:blink 7s infinite;transform-origin:center}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.06)}}
+@media (prefers-reduced-motion:reduce){.eye i{animation:none}html{scroll-behavior:auto}}
+h1{font-size:clamp(2.4rem,9vw,3.6rem);letter-spacing:-.02em}
+.lead{font-size:1.15rem;color:var(--mute);margin:16px 0 0;max-width:34em}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+nav a{padding:8px 14px;border:1.5px solid var(--line);border-radius:99px;text-decoration:none;color:var(--ink);font-size:.95rem;background:var(--card)}
+nav a:hover,nav a:focus-visible{border-color:var(--ink);outline:none}
+section.iv{--pc:var(--s);margin:44px 0;padding-left:18px;border-left:5px solid var(--pc)}
+#nietzsche{--pc:var(--n)}#camus{--pc:var(--c)}#buddha{--pc:var(--b)}
+section.iv h2{font-size:1.9rem}
+.tag{color:var(--pc);font-weight:600;margin:4px 0 18px;font-size:.98rem}
+.q{margin:10px 0;padding:11px 15px;border-radius:14px;max-width:92%}
+.q b{display:block;font-size:.85rem;margin-bottom:2px}
+.q.k{background:var(--card);border:1px solid var(--line);border-bottom-left-radius:4px}
+.q.k b{color:var(--mute)}
+.q.f{margin-left:auto;background:color-mix(in srgb,var(--pc) 14%,var(--card));border:1px solid color-mix(in srgb,var(--pc) 40%,var(--line));border-bottom-right-radius:4px}
+.q.f b{color:var(--pc)}
+.verdikt{margin:20px 0 0;padding:14px 16px;border-radius:12px;background:var(--card);border:1.5px dashed var(--pc);font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:1.1rem}
+.zaver{margin:56px 0 24px}
+.zaver h2{font-size:1.8rem;margin-bottom:14px}
+.tab{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.tab th,.tab td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.98rem}
+.tab th{width:34%;font-weight:700}
+.tab tr:last-child th,.tab tr:last-child td{border-bottom:0}
+.sc{overflow-x:auto}
+.hd{display:flex;gap:16px;align-items:center;margin-bottom:16px}.hd .tag{margin:6px 0 0}
+.face{flex:none;width:96px;height:96px}
+.face *{fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.face .sk{fill:var(--card)}.face .hr{fill:var(--line)}.face .dk{fill:var(--ink)}.face .ac{fill:var(--pc)}.face .ey{fill:var(--eye)}.face .sl{fill:#14111c;stroke:none}.face .ha{stroke:var(--pc);stroke-width:1.5}
+#platon{--pc:#6d4aa0}#heidegger{--pc:#3f7a4a}#sartre{--pc:#b0457a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #platon{--pc:#b79cf0}:root:not([data-theme="light"]) #heidegger{--pc:#7fcf8d}:root:not([data-theme="light"]) #sartre{--pc:#f08fbb}}
+:root[data-theme="dark"] #platon{--pc:#b79cf0}:root[data-theme="dark"] #heidegger{--pc:#7fcf8d}:root[data-theme="dark"] #sartre{--pc:#f08fbb}
+.tri{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0 4px}
+.tri div{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--pc);border-radius:10px;padding:10px 12px;font-size:.95rem}
+.tri b{display:block;font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:1.15rem}
+.tri em{display:block;color:var(--pc);font-style:normal;font-weight:600;margin:2px 0 6px}
+footer{padding:20px 0 48px;color:var(--mute);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="eyes" aria-hidden="true"><div class="eye"><i></i></div><div class="eye"><i></i></div></div>
+<h1>Mačacia filozofia</h1>
+<p class="lead">Mačky nečítajú filozofiu, a predsa žijú tak, akoby ju prečítali celú. Kocúr Muro sa vybral na rozhovor so siedmimi mysliteľmi, aby zistil, kto mu rozumie najviac.</p>
+<nav aria-label="Rozhovory">
+<a href="#platon">Platón</a><a href="#schopenhauer">Schopenhauer</a><a href="#heidegger">Heidegger</a><a href="#nietzsche">Nietzsche</a><a href="#camus">Camus</a><a href="#buddha">Budha</a><a href="#sartre">Sartre</a>
+</nav>
+</header>
+
+<main>
+<section class="iv" id="platon">
+<div class="hd"><svg class="face" viewBox="0 0 100 100" aria-hidden="true"><path class="sk" d="M23 36L19 8L42 24zM77 36L81 8L58 24z"/><ellipse class="sk" cx="50" cy="52" rx="26" ry="30"/><path class="hr" d="M24 52Q22 78 50 80Q78 78 76 52Q70 70 50 70Q30 70 24 52z"/><path class="ac" d="M27 34Q50 24 73 34L73 40Q50 31 27 40z"/><path d="M34 45l11-3M66 45l-11-3"/><ellipse class="ey" cx="40" cy="52" rx="6" ry="5"/><ellipse class="sl" cx="40" cy="52" rx="1.6" ry="4.6"/><ellipse class="ey" cx="60" cy="52" rx="6" ry="5"/><ellipse class="sl" cx="60" cy="52" rx="1.6" ry="4.6"/><path class="ac" d="M45 60h10l-5 6z"/><path d="M50 66v3"/><path class="hr" d="M30 70Q24 94 50 98Q76 94 70 70Q50 80 30 70z"/><path d="M30 65L8 60M30 70L8 72M70 65L92 60M70 70L92 72"/></svg><div><h2>Platón</h2>
+<p class="tag">Skutočný svet je za tieňmi na stene.</p></div></div>
+<p class="q k"><b>Kocúr Muro</b>Pán Platón, každý večer naháňam bodku na stene. Nikdy ju nechytím.</p>
+<p class="q f"><b>Platón</b>Vitaj v mojej jaskyni. Pripútaní väzni vidia na stene len tiene a považujú ich za skutočnosť. Bodka je tieň, a svetlo, ktoré ju vrhá, je za tvojím chrbtom.</p>
+<p class="q k"><b>Kocúr Muro</b>A čo moja škatuľa? Tú mám rád.</p>
+<p class="q f"><b>Platón</b>Škatuľa je malá jaskyňa. Rozdiel je v tom, že ty z nej vždy môžeš vyjsť. Väzeň z mojej jaskyne vychádza oveľa ťažšie.</p>
+<p class="q k"><b>Kocúr Muro</b>A čo sú vaše Idey?</p>
+<p class="q f"><b>Platón</b>Dokonalé vzory vecí. Každá mačka na svete je len nedokonalou kópiou Ideálnej mačky, ktorá existuje mimo nášho sveta.</p>
+<p class="q k"><b>Kocúr Muro</b>Takže som len kópia?</p>
+<p class="q f"><b>Platón</b>Veľmi vydarená. Kto sa na teba pozerá, tak trochu zahliadne Ideu.</p>
+<p class="verdikt">Kocúr podľa Platóna: pekná kópia Ideálnej mačky, ktorá naháňa tieň bodky a o svetle za chrbtom nevie.</p>
+</section>
+
+<section class="iv" id="schopenhauer">
+<div class="hd"><svg class="face" viewBox="0 0 100 100" aria-hidden="true"><path class="sk" d="M23 36L19 8L42 24zM77 36L81 8L58 24z"/><path class="hr" d="M25 46C8 38 2 60 14 72C19 63 25 63 27 56zM75 46C92 38 98 60 86 72C81 63 75 63 73 56z"/><ellipse class="sk" cx="50" cy="56" rx="26" ry="31"/><path d="M33 43l13 5M67 43l-13 5"/><ellipse class="ey" cx="40" cy="53" rx="6" ry="5"/><ellipse class="sl" cx="40" cy="53" rx="1.6" ry="4.6"/><ellipse class="ey" cx="60" cy="53" rx="6" ry="5"/><ellipse class="sl" cx="60" cy="53" rx="1.6" ry="4.6"/><path class="ac" d="M45 60h10l-5 6z"/><path d="M50 66v3M41 74Q50 70 59 74"/><path d="M30 65L8 60M30 70L8 72M70 65L92 60M70 70L92 72"/></svg><div><h2>Arthur Schopenhauer</h2>
+<p class="tag">Život je neustála túžba, a tá bolí.</p></div></div>
+<p class="q k"><b>Kocúr Muro</b>Pán Schopenhauer, prečo o tretej ráno nezastaviteľne pobehujem po byte?</p>
+<p class="q f"><b>Schopenhauer</b>To je Vôľa, slepý a nenásytný pud, ktorý poháňa všetko živé. Ty tomu hovoríš „lov“. Ja tomu hovorím zdroj utrpenia: kým túžime, trpíme, a keď túžbu naplníme, nastúpi nuda.</p>
+<p class="q k"><b>Kocúr Muro</b>Nuda? Ja sa nudím len medzi dvoma spánkami.</p>
+<p class="q f"><b>Schopenhauer</b>Práve preto ti závidím. Keď nehybne pozoruješ vtáka za oknom, na chvíľu zabudneš na vlastnú vôľu a len hľadíš. U ľudí to nazývam estetickým nazeraním. U teba je to utorok.</p>
+<p class="q k"><b>Kocúr Muro</b>Počul som, že ste písali aj o ježkoch.</p>
+<p class="q f"><b>Schopenhauer</b>Ježkovia v zime sa túlia k sebe, no bodajú sa, a keď odídu, mrznú. Hľadajú vzdialenosť, ktorú znesú. Ty si ju našiel: ležíš pri mne, ale nie na mne.</p>
+<p class="verdikt">Kocúr podľa Schopenhauera: Vôľa na štyroch labkách, ktorá sa občas zastaví a pozoruje.</p>
+</section>
+
+<section class="iv" id="heidegger">
+<div class="hd"><svg class="face" viewBox="0 0 100 100" aria-hidden="true"><path class="sk" d="M23 36L19 8L42 24zM77 36L81 8L58 24z"/><path class="hr" d="M26 46Q14 44 18 66Q24 58 28 56zM74 46Q86 44 82 66Q76 58 72 56z"/><ellipse class="sk" cx="50" cy="55" rx="26" ry="31"/><path d="M34 46l12 3M66 46l-12 3M48 40v5"/><ellipse class="ey" cx="40" cy="54" rx="6" ry="5"/><ellipse class="sl" cx="40" cy="54" rx="1.6" ry="4.6"/><ellipse class="ey" cx="60" cy="54" rx="6" ry="5"/><ellipse class="sl" cx="60" cy="54" rx="1.6" ry="4.6"/><path class="ac" d="M45 60h10l-5 6z"/><path class="dk" d="M38 71Q50 66 62 71Q50 74 38 71z"/><path d="M42 77Q50 80 58 77"/><path d="M30 65L8 60M30 70L8 72M70 65L92 60M70 70L92 72"/></svg><div><h2>Martin Heidegger</h2>
+<p class="tag">Buď sám sebou, nie len jedným z mnohých.</p></div></div>
+<p class="q k"><b>Kocúr Muro</b>Pán Heidegger, čo je to vaše Dasein?</p>
+<p class="q f"><b>Heidegger</b>Bytie, ktoré sa pýta na vlastné bytie. Človek je „vrhnutý“ do sveta a stále sa o všetko stará. Starosť je jeho základná črta.</p>
+<p class="q k"><b>Kocúr Muro</b>Ja sa nestarám. Len spím na kresle.</p>
+<p class="q f"><b>Heidegger</b>To je tvoje šťastie. Človek sa väčšinou nestará sám za seba, ale podľa toho, čo sa „robí“. Hovorím tomu Das Man, nemecky „ono“ alebo „človek“: bezmenné „oni“, ktoré rozhodujú, ako sa obliekať, čo hovoriť a čo si myslieť.</p>
+<p class="q k"><b>Kocúr Muro</b>To je ako s videami, v ktorých všetky mačky skáču do škatúľ, lebo sa to „robí“?</p>
+<p class="q f"><b>Heidegger</b>Presne tak. V Das Man sa človek rozpúšťa a prestáva byť sám sebou. Ty do škatule skočíš len vtedy, keď sa ti chce, nie preto, že to robia všetci. Tomu hovorím vlastné, autentické bytie.</p>
+<p class="q k"><b>Kocúr Muro</b>A čo smrť?</p>
+<p class="q f"><b>Heidegger</b>Človek vie, že zomrie, a práve to ho robí úzkostným. Ty sa o to nezaujímaš. Včera si pri tej téme zíval.</p>
+<p class="verdikt">Kocúr podľa Heideggera: autentické bytie, ktoré sa nemusí pozerať na to, čo sa „robí“.</p>
+</section>
+
+<section class="iv" id="nietzsche">
+<div class="hd"><svg class="face" viewBox="0 0 100 100" aria-hidden="true"><path class="sk" d="M23 36L19 8L42 24zM77 36L81 8L58 24z"/><ellipse class="sk" cx="50" cy="54" rx="27" ry="31"/><path class="dk" d="M23 42Q50 8 77 42Q50 26 23 42z"/><path d="M32 46l14 4M68 46l-14 4" stroke-width="3"/><ellipse class="ey" cx="40" cy="54" rx="6" ry="5"/><ellipse class="sl" cx="40" cy="54" rx="1.6" ry="4.6"/><ellipse class="ey" cx="60" cy="54" rx="6" ry="5"/><ellipse class="sl" cx="60" cy="54" rx="1.6" ry="4.6"/><path class="ac" d="M45 60h10l-5 6z"/><path class="dk" d="M50 66Q36 60 18 70Q30 80 44 74Q50 72 56 74Q70 80 82 70Q64 60 50 66z"/><path d="M20 69L5 64M20 73L5 77M80 69L95 64M80 73L95 77"/></svg><div><h2>Friedrich Nietzsche</h2>
+<p class="tag">Z ťavy sa stane lev a z leva dieťa.</p></div></div>
+<p class="q k"><b>Kocúr Muro</b>Pán Nietzsche, vraj ste vyhlásili, že Boh zomrel. Ja som len zjedol rybu.</p>
+<p class="q f"><b>Nietzsche</b>Hovoril som o niečom inom, ale tvoj humor beriem. Opísal som tri premeny ducha: ťavu, leva a dieťa.</p>
+<p class="q k"><b>Kocúr Muro</b>Ťavu poznám. Ako mačiatko som poslušne sedel v prepravke a vydržal veterinára.</p>
+<p class="q f"><b>Nietzsche</b>To je ťava: kľakne si a nechá si naložiť bremená. Je poslušná, jej heslom je „ty musíš“. Pravidlá, rozvrh, kefka, všetko ochotne ponesie.</p>
+<p class="q k"><b>Kocúr Muro</b>Potom som zistil, že mám pazúry. Rozdrásal som gauč, zasyčal na vysávač a o šiestej ráno nesúhlasím s budíkom.</p>
+<p class="q f"><b>Nietzsche</b>To je lev. Búri sa proti príkazom a hovorí „ja chcem“. Vybojuje si slobodu, ale ešte nič nevytvára.</p>
+<p class="q k"><b>Kocúr Muro</b>A čo nasleduje po slobode?</p>
+<p class="q f"><b>Nietzsche</b>Dieťa. Včera si tri hodiny hral s jedným klbkom, vymýšľal nové pravidlá a nikomu sa za to neospravedlnil. Je to nevinný nový začiatok, hra a tvorivosť, ktoré hovoria „áno“.</p>
+<p class="q k"><b>Kocúr Muro</b>Takže klbko bolo tvorivosť?</p>
+<p class="q f"><b>Nietzsche</b>Hra, ktorá sama sebe stačí. Dieťa nevyvracia starý svet, začína nový.</p>
+<p class="q k"><b>Kocúr Muro</b>A to vaše „večné navrátenie“?</p>
+<p class="q f"><b>Nietzsche</b>Predstav si, že by si musel žiť ten istý život znova a znova. Väčšinu ľudí by to zdesilo. Ty by si zívol a zopakoval včerajšok aj s tou miskou. Tomu hovorím amor fati, láska k osudu.</p>
+<div class="tri"><div><b>Ťava</b><em>poslušnosť: „ty musíš“</em>Kocúr sedí v prepravke a trpezlivo znáša veterinára.</div><div><b>Lev</b><em>búrenie: „ja chcem“</em>Kocúr drásá gauč a syčí na vysávač.</div><div><b>Dieťa</b><em>tvorivosť: „áno“</em>Kocúr hrá vlastnú hru s jedným klbkom.</div></div>
+<p class="verdikt">Kocúr podľa Nietzscheho: ťava v prepravke, lev na gauči a dieťa pri klbku, a najradšej je dieťaťom.</p>
+</section>
+
+<section class="iv" id="camus">
+<div class="hd"><svg class="face" viewBox="0 0 100 100" aria-hidden="true"><path class="ac" d="M6 100L26 76L50 90L74 76L94 100z"/><path class="sk" d="M23 36L19 8L42 24zM77 36L81 8L58 24z"/><ellipse class="sk" cx="50" cy="52" rx="26" ry="30"/><path class="dk" d="M24 44Q26 14 54 17Q80 20 76 44Q66 30 50 30Q36 30 24 44z"/><ellipse class="ey" cx="40" cy="53" rx="6" ry="5"/><ellipse class="sl" cx="40" cy="53" rx="1.6" ry="4.6"/><ellipse class="ey" cx="60" cy="53" rx="6" ry="5"/><ellipse class="sl" cx="60" cy="53" rx="1.6" ry="4.6"/><path d="M33 49h14M53 49h14"/><path class="ac" d="M45 60h10l-5 6z"/><path d="M50 66v3M42 74h14"/><path d="M56 74L82 67" stroke-width="3"/><circle class="ey" cx="84" cy="66" r="2.5"/><path d="M87 59Q93 53 86 48" stroke-width="1.5"/><path d="M31 63L10 59M31 68L10 70M69 63L90 59"/></svg><div><h2>Albert Camus</h2>
+<p class="tag">Svet je absurdný, a práve preto sa oplatí vzbúriť sa a žiť.</p></div></div>
+<p class="q k"><b>Kocúr Muro</b>Pán Camus, vraj je Sizyfos šťastný. Ako, keď donekonečna tlačí ten istý balvan?</p>
+<p class="q f"><b>Camus</b>Absurdno vzniká, keď človek žiada zmysel od sveta, ktorý mlčí. Riešením nie je útek, ale vzbura: vedome pokračovať. Treba si Sizyfa predstaviť ako šťastného.</p>
+<p class="q k"><b>Kocúr Muro</b>Ja každé ráno zhodím pohár z police. A on ho zase postaví.</p>
+<p class="q f"><b>Camus</b>To je vzbura bez nádeje, ale s plnou prítomnosťou. Pritom nehľadáš odpoveď, len cítiš slnko na srsti.</p>
+<p class="q k"><b>Kocúr Muro</b>Takže ten pohár vlastne nezhadzujem zbytočne?</p>
+<p class="q f"><b>Camus</b>Zbytočne áno, a práve v tom je tá sloboda. Zhadzuj ho s radosťou.</p>
+<p class="verdikt">Kocúr podľa Camusa: šťastný Sizyfos, ktorého balvanom je pohár na polici.</p>
+</section>
+
+<section class="iv" id="buddha">
+<div class="hd"><svg class="face" viewBox="0 0 100 100" aria-hidden="true"><circle class="ha" cx="50" cy="52" r="47"/><path class="sk" d="M23 34L20 7L42 22zM77 34L80 7L58 22z"/><ellipse class="sk" cx="21" cy="68" rx="4.5" ry="14"/><ellipse class="sk" cx="79" cy="68" rx="4.5" ry="14"/><ellipse class="sk" cx="50" cy="57" rx="26" ry="30"/><circle class="dk" cx="50" cy="19" r="9"/><path class="dk" d="M25 42Q50 18 75 42Q50 34 25 42z"/><circle class="ac" cx="50" cy="42" r="2.2"/><path d="M34 54Q40 60 46 54M54 54Q60 60 66 54"/><path class="ac" d="M45 60h10l-5 6z"/><path d="M50 66v2M42 71Q50 77 58 71"/><path d="M31 64L12 60M31 69L12 71M69 64L88 60M69 69L88 71"/></svg><div><h2>Siddhártha Gautama, Budha</h2>
+<p class="tag">Utrpenie vzniká z lipnutia, a stredná cesta ho zmierňuje.</p></div></div>
+<p class="q k"><b>Kocúr Muro</b>Pane Budha, ja chcem len dve veci: misku a slnko. Je to veľa?</p>
+<p class="q f"><b>Budha</b>Miska nie je problém. Problémom je lipnutie. Ak čakáš na prázdnu misku v pokoji, netrpíš. Ak ju požaduješ hlasným mňaukaním o piatej ráno, trpíš ty aj tvoj človek.</p>
+<p class="q k"><b>Kocúr Muro</b>Tých hlasných päť minút mám rád.</p>
+<p class="q f"><b>Budha</b>Aj to je cesta. Učil som strednú cestu: ani prísna askéza, ani nadbytok. Ty ju žiješ bez kázania: jesť, spať, umývať sa a čakať.</p>
+<p class="q k"><b>Kocúr Muro</b>A čo meditácia?</p>
+<p class="q f"><b>Budha</b>Sedieť bez cieľa a pozorovať dych. Ty tomu hovoríš „pozerať do steny“. Rozdiel je v tom, že sa pritom nesnažíš byť osvietený.</p>
+<p class="verdikt">Kocúr podľa Budhu: stredná cesta medzi miskou a slnkom.</p>
+</section>
+
+<section class="iv" id="sartre">
+<div class="hd"><svg class="face" viewBox="0 0 100 100" aria-hidden="true"><path class="sk" d="M23 36L19 8L42 24zM77 36L81 8L58 24z"/><ellipse class="sk" cx="50" cy="54" rx="26" ry="30"/><path class="dk" d="M26 38Q50 14 74 38Q62 28 50 30Q38 28 26 38z"/><ellipse class="ey" cx="40" cy="53" rx="6" ry="5"/><ellipse class="sl" cx="40" cy="53" rx="1.6" ry="4.6"/><ellipse class="ey" cx="60" cy="53" rx="6" ry="5"/><ellipse class="sl" cx="63.5" cy="53" rx="1.6" ry="4.6"/><circle cx="40" cy="53" r="10"/><circle cx="60" cy="53" r="10"/><path d="M50 53h0M50 52h0M50 53v0"/><path class="ac" d="M45 60h10l-5 6z"/><path d="M50 66v3M42 74h12"/><path d="M54 74L76 77" stroke-width="3"/><path class="dk" d="M76 72h8v9h-8z"/><path d="M80 66Q85 60 79 55" stroke-width="1.5"/><path d="M29 66L9 62M29 71L9 73M71 66L91 62"/></svg><div><h2>Jean-Paul Sartre</h2>
+<p class="tag">Si odsúdený byť slobodný.</p></div></div>
+<p class="q k"><b>Kocúr Muro</b>Pán Sartre, kto som, keď nemám žiadny návod na život?</p>
+<p class="q f"><b>Sartre</b>Existencia predchádza esenciu. Najprv si, a až potom sa vymedzíš svojimi činmi. Nemáš vopred daný „návod na mačku“.</p>
+<p class="q k"><b>Kocúr Muro</b>Takže môžem byť lovec alebo gaučák?</p>
+<p class="q f"><b>Sartre</b>Si odsúdený byť slobodný. Aj keď celý deň ležíš, rozhodol si sa ležať. Ak povieš „mačky už také sú“, je to zlá viera, útek pred slobodou.</p>
+<p class="q k"><b>Kocúr Muro</b>A čo vaše „peklo sú druhí“?</p>
+<p class="q f"><b>Sartre</b>Pohľad druhého z teba robí predmet. Keď ťa človek pristihne pri šunke, zrazu si „zlodej“, hoci si pred chvíľou bol len hladný.</p>
+<p class="q k"><b>Kocúr Muro</b>To je presne to zamrznutie, keď ma niekto zbadá.</p>
+<p class="q f"><b>Sartre</b>Cítiš hanbu a práve cez ňu zistíš, že existuje niekto iný. Potom sa ale znova rozhodneš: dojedať, alebo odísť.</p>
+<p class="verdikt">Kocúr podľa Sartra: sloboda bez návodu, v ktorej si aj gaučák vyberá byť gaučákom.</p>
+</section>
+
+<section class="zaver">
+<h2>Čo si z toho odniesť</h2>
+<div class="sc"><table class="tab">
+<tr><th>Platón</th><td>Nepovažuj tieň bodky za skutočnosť a vyjdi zo škatule.</td></tr>
+<tr><th>Schopenhauer</th><td>Pozoruj a na chvíľu pusť svoju túžbu.</td></tr>
+<tr><th>Heidegger</th><td>Nerob veci len preto, že sa „robia“.</td></tr>
+<tr><th>Nietzsche</th><td>Hraj sa a nežiadaj si pre to dôvod.</td></tr>
+<tr><th>Camus</th><td>Opakuj to, čo robíš, a rob to s radosťou.</td></tr>
+<tr><th>Budha</th><td>Nelipni na miske a drž sa strednej cesty.</td></tr>
+<tr><th>Sartre</th><td>Si tým, čo robíš, a gauč je tvoja voľba.</td></tr>
+</table></div>
+<p style="margin-top:16px">Spoločný menovateľ: kocúr Muro žije v prítomnom okamihu a od sveta nežiada vysvetlenie.</p>
+</section>
+</main>
+
+<footer>Rozhovory sú vymyslené a humorné, myšlienky filozofov sú v nich zjednodušené.</footer>
+</div>
+</body>
+</html>
